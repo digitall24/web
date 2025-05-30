@@ -17,7 +17,7 @@ app.use("/downloads", express.static(path.join(__dirname)));
 
 function generateXml(eik, fdrid) {
     return create()
-        .dec({ version: "1.0", encoding: "WINDOWS-1251" })
+        .dec({ version: "1.0", encoding: "UTF-8" })
         .ele("dec44a2", {
             xmlns: "http://inetdec.nra.bg/xsd/dec_44a2.xsd",
             "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
