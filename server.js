@@ -60,8 +60,8 @@ res.status(200).send(`✅ XML файл създаден: <a href="${fileUrl}" ta
     // Тук можеш да извикаш функции за изпращане по имейл и FTP
     
 
-    console.log(`✅ XML файл създаден: ${fileUrl}`);
-    res.status(200).json({ downloadUrl: fileUrl });
+//    console.log(`✅ XML файл създаден: ${fileUrl}`);
+//    res.status(200).json({ downloadUrl: fileUrl });
 
 });
 
