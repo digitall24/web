@@ -53,9 +53,11 @@ app.post("/generate-xml", async (req, res) => {
 
     fs.writeFileSync(filename, xml, "utf8");
     console.log("📁 Записване в директория:", process.cwd());
+    const fileUrl = `${req.protocol}://${req.get("host")}/downloads/${filename}`;
+res.status(200).send(`✅ XML файл създаден: <a href="${fileUrl}" target="_blank">${filename}</a>`);
     
     // Тук можеш да извикаш функции за изпращане по имейл и FTP
-    const fileUrl = `https://github.com/digitall24/web/tree/main/${filename}`; // промени адреса според твоя хост
+    
 
     console.log(`✅ XML файл създаден: ${fileUrl}`);
     res.status(200).json({ downloadUrl: fileUrl });
