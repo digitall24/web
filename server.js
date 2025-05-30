@@ -61,7 +61,7 @@ app.post("/generate-xml", async (req, res) => {
     
 
     console.log(`✅ XML файл създаден: ${fileUrl}`);
-    res.status(200).json({ downloadUrl: fileUrl });
+  //  res.status(200).json({ downloadUrl: fileUrl });
     res.json({ 
     message: "✅ XML файл създаден успешно.",
     downloadUrl: `https://web-l8hf.onrender.com/files/${filename}` 
