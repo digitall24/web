@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 app.use("/downloads", express.static(path.join(__dirname)));
-res.download(path.join(__dirname, filename));
+
 
 
 function generateXml(eik, fdrid) {
