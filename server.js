@@ -46,7 +46,7 @@ app.post("/generate-xml", async (req, res) => {
     const filename = `export_${eik}_${Date.now()}.xml`;
 
     fs.writeFileSync(filename, xml, "utf8");
-
+    console.log("📁 Записване в директория:", process.cwd());
     // Тук можеш да извикаш функции за изпращане по имейл и FTP
     console.log(`✅ XML файл създаден: ${filename}`);
 
