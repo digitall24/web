@@ -6,9 +6,13 @@ const { create } = require('xmlbuilder2');
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 const ftp = require('basic-ftp');
+const path = require("path");
+
 
 app.use(cors()); 
 app.use(express.json());
+app.use(express.static("public"));
+
 
 function generateXml(eik, fdrid) {
     return create()
@@ -44,13 +48,18 @@ app.post("/generate-xml", async (req, res) => {
 
     const xml = generateXml(eik, fdrid);
     const filename = `export_${eik}_${Date.now()}.xml`;
+    
+    const filePath = path.join(__dirname, "public", filename);
 
     fs.writeFileSync(filename, xml, "utf8");
     console.log("📁 Записване в директория:", process.cwd());
+    
     // Тук можеш да извикаш функции за изпращане по имейл и FTP
-    console.log(`✅ XML файл създаден: ${filename}`);
+    const fileUrl = `https://web-l8hf.onrender.com/${filename}`; // промени адреса според твоя хост
 
-    res.status(200).send("OK");
+    console.log(`✅ XML файл създаден: ${fileUrl}`);
+    res.status(200).json({ downloadUrl: fileUrl });
+
 });
 
 //app.listen(3000, () => console.log("🚀 Server listening on port 3000"));
