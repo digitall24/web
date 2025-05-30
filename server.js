@@ -7,6 +7,7 @@ require('dotenv').config();
 const nodemailer = require('nodemailer');
 const ftp = require('basic-ftp');
 const path = require("path");
+const downloadsPath = path.join(__dirname, "downloads");
 
 app.use(cors()); 
 app.use(express.json());
@@ -64,7 +65,7 @@ app.post("/generate-xml", async (req, res) => {
   //  res.status(200).json({ downloadUrl: fileUrl });
     res.json({ 
     message: "✅ XML файл създаден успешно.",
-    downloadUrl: `https://web-l8hf.onrender.com/files/${filename}` 
+    downloadUrl: `https://web-l8hf.onrender.com/downloads/${filename}` 
   });
 
 });
