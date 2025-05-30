@@ -55,7 +55,7 @@ app.post("/generate-xml", async (req, res) => {
     console.log("📁 Записване в директория:", process.cwd());
     
     // Тук можеш да извикаш функции за изпращане по имейл и FTP
-    const fileUrl = `https://web-l8hf.onrender.com/${filename}`; // промени адреса според твоя хост
+    const fileUrl = `https://github.com/digitall24/web/tree/main/${filename}`; // промени адреса според твоя хост
 
     console.log(`✅ XML файл създаден: ${fileUrl}`);
     res.status(200).json({ downloadUrl: fileUrl });
